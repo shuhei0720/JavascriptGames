@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script>
+      function calcSum() {
+        let max = document.getElementById("max").value;
+        let total = 0;
+        let i = 0;
+        while (i <= max) {
+          total += i;
+          i++;
+        }
+        document.getElementById("val").textContent = max;
+        document.getElementById("sum").textContent = total;
+      }
+      let programmingLanguage = ["javascript", "php",];
+    </script>
+  </head>
+  <body>
+    <h2>1から<span id="val"></span>の合計は<span id="sum"></span></h2>
+    <input id="max" value="10">
+    <button onclick="calcSum()">合計</button>
+  </body>
+</html>

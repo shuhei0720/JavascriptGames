@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script>
+      function calcSum() {
+        let max = document.getElementById("max").value;
+        let total = 0;
+        for (let i = 0;i <= max;i++) {
+          total += i;
+        }
+        document.getElementById("val").textContent = max;
+        document.getElementById("sum").textContent = total;
+      }
+      let programmingLanguage = ["javascript", "php",];
+    </script>
+  </head>
+  <body>
+    <input id="source">
+    <button onclick="kaibun()">回文</button>
+    <p id="result"></p>
+  </body>
+</html>
