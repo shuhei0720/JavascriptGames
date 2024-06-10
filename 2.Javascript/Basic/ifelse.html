@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Javascript</title>
+        <script>
+            function check() {
+                let a = document.getElementById("i0").value;
+                let b = document.getElementById("i1").value;
+                if (a == b) {
+                    document.getElementById("result").textContent = "同じ！";
+                } else {
+                    document.getElementById("result").textContent = "はずれ！";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h2>神経衰弱</h2>
+        カード１：<input id="i0" value="3">
+        カード２：<input id="i1" value="5">
+        <button onclick="check()">check</button>
+        <p id="result"></p>
+    </body>
+</html>
