@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script>
+      function c2f(c) {
+        let f = (9 / 5) * c + 32;
+        return Math.floor(f);
+      }
+
+      function convert() {
+        let c = document.getElementById("celsius").value;
+        let f = c2f(c);
+        let s = "摂氏:" + c + "度　華氏:" + f + "度";
+        document.getElementById("result").textContent = s;
+      }
+    </script>
+  </head>
+  <body>
+    <input id = "celsius" type="range" min="0" max="100" onchange="convert()">
+    <p id="result"></p>
+  </body>
+</html>
