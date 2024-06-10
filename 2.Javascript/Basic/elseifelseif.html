@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Javascript</title>
+    <script>
+        window.onload = function () {
+            let str = "";
+            let day = new Date().getDay();
+            if (day == 0) {
+                str = "日";
+            } else if (day == 1) {
+                str = "月";
+            } else if (day == 2) {
+                str = "火";
+            } else if (day == 3) {
+                str = "水";
+            } else if (day == 4) {
+                str = "木";
+            } else if (day == 5) {
+                str = "金";
+            } else if (day == 6) {
+                str = "土";
+            }
+            document.getElementById("day").textContent = str;
+        };
+    </script>
+</head>
+<body>
+    <h1>今日は<span id="day"></span>曜日</h1>
+</body>
+</html>
