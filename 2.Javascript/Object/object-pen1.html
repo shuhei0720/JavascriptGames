@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script>
+      let pen = {
+        color: "red",
+        length: 5,
+      };
+      function checkLength() {
+        document.getElementById("length").textContent = pen.length;
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="checkLength()">長さチェック</button>
+    <p>鉛筆の長さは<span id="length"></span>cm</p>
+  </body>
+</html>
+
