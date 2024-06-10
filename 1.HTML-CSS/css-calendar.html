@@ -2,28 +2,98 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>ページのレイアウト</title>
+        <title>カレンダー</title>
         <style>
-            p,
-            h1 {
-                border: 1px dotted blue;
+            h2 {
+                color: #0094ff;
+                text-align: center;
             }
-            span {
-                border: 1px solid red;
+            img {
+                box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.4);
+                width: 500px;
+            }
+            td {
+                font-size: 28px;
+                text-align: center;
+                border: 1px solid #cccccc;
+            }
+            .red {
+                color: red;
+            }
+            tr:nth-child(2) {
+                font-weight: bold;
+                text-decoration: underline;
+            }
+            td:first-child {
+                color: red;
+            }
+            table {
+                margin: 20px;
             }
         </style>
     </head>
     <body>
-        <h1>HyperText Markup Language</h1>
-        <p>
-            「HyperText Markup Language (ハイパーテクストマークアップ言語) 」の略。
-            Webページ作成の根幹を成す記述言語であり、WWWを支える基本技術の1つとなっている。
-        </p>
-        <p>
-            文書同士をつなげる「<span>ハイパーテキスト</span>」の概念をベースに、1980年代後半に、
-            CERNの科学者ティム・バーナーズ＝リーにより<span>WWW</span>と<span>HTML</span>が提唱され、
-            90年代にNeXTSTEP上で開発・実装された。その後、Webブラウザの「<span>Mosaic</span>」により
-            一般の研究者にも利用が広まり、世界標準となっていった。
-        </p>
+        <h2>2025年1月カレンダー</h2>
+        <table>
+            <tr>
+                <td colspan="7">
+                    <img src="winter.jpg">
+                </td>
+            </tr>
+            <tr>
+                <td>日</td>
+                <td>月</td>
+                <td>火</td>
+                <td>水</td>
+                <td>木</td>
+                <td>金</td>
+                <td>土</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="red">1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>10</td>
+                <td>11</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td class="red">13</td>
+                <td>14</td>
+                <td>15</td>
+                <td>16</td>
+                <td>17</td>
+                <td>18</td>
+            </tr>
+            <tr>
+                <td>19</td>
+                <td>20</td>
+                <td>21</td>
+                <td>22</td>
+                <td>23</td>
+                <td>24</td>
+                <td>25</td>
+            </tr>
+            <tr>
+                <td>26</td>
+                <td>27</td>
+                <td>28</td>
+                <td>29</td>
+                <td>30</td>
+                <td>31</td>
+                <td></td>
+            </tr>
+        </table>
     </body>
 </html>
