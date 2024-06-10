@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Javascript</title>
+    <script>
+        function jikkan(year) {
+            let r = "";
+            switch (year % 10) {
+                case 0:
+                    r = "庚";
+                    break;
+                case 1:
+                    r = "辛";
+                    break;
+                case 2:
+                    r = "壬";
+                    break;
+                case 3:
+                    r = "癸";
+                    break;
+                case 4:
+                    r = "甲";
+                    break;
+                case 5:
+                    r = "乙";
+                    break;
+                case 6:
+                    r = "丙";
+                    break;
+                case 7:
+                    r = "丁";
+                    break;
+                case 8:
+                    r = "戌";
+                    break;
+                case 9:
+                    r = "己";
+                    break;
+            }
+            return r;
+        }
+
+        function junishi(year) {
+            let r = "";
+            switch (year % 12) {
+                case 0:
+                    r = "申";
+                    break;
+                case 1:
+                    r = "酉";
+                    break;
+                case 2:
+                    r = "戌";
+                    break;
+                case 3:
+                    r = "亥";
+                    break;
+                case 4:
+                    r = "子";
+                    break;
+                case 5:
+                    r = "丑";
+                    break;
+                case 6:
+                    r = "寅";
+                    break;
+                case 7:
+                    r = "卯";
+                    break;
+                case 8:
+                    r = "辰";
+                    break;
+                case 9:
+                    r = "巳";
+                    break;
+                case 10:
+                    r = "午";
+                    break;
+                case 11:
+                    r = "未";
+                    break;
+            }
+            return r;
+        }
+
+        function calc() {
+            let y = document.getElementById("year").value;
+            let s0 = jikkan(y);
+            let s1 = junishi(y);
+            document.getElementById("y").textContent = y;
+            document.getElementById("e").textContent = s0 + s1;
+
+        }
+    </script>
+</head>
+<body>
+    <h2><span id="y"></span>年の干支は<span id="e"></span></h2>
+    <p>
+        <input id="year" value="2023">
+        <button onclick="calc()">計算</button>
+    </p>
+</body>
+</html>
