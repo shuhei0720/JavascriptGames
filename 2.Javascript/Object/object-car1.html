@@ -4,23 +4,19 @@
     <meta charset="UTF-8">
     <script>
       let car = {
-        color: "black",
-        speed: 100,
-        fuel: 70,
+        color: "white",
+        speed: 30,
+        fuel: 100,
       };
-      function checkSpeed() {
+      function carCheck() {
         document.getElementById("speed").textContent = car.speed;
-      }
-      function checkFuel() {
-        document.getElementById("fuel").textContent = car.fuel;
+        document.getElementById("gas").textContent = car.fuel;
       }
     </script>
   </head>
   <body>
-    <button onclick="checkSpeed()">スピードチェック</button>
-    <p>車のスピードは<span id="speed"></span>km</p>
-    <button onclick="checkFuel()">燃料チェック</button>
-    <p>車の燃料は<span id="fuel"></span>%</p>
+    <button onclick="carCheck()">車チェック</button>
+    <p>車の速さは<span id="speed"></span>km/h</p>
+    <p>車の燃料は<span id="gas"></span>l</p>
   </body>
 </html>
-
