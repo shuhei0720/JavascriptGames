@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Javascript</title>
+    <script>
+        window.onload = function () {
+            let str = "";
+            let day = new Date().getDay();
+            switch (day) {
+                case 0:
+                    str = "日";
+                    break;
+                case 1:
+                    str = "月";
+                    break;
+                case 2:
+                    str = "火";
+                    break;
+                case 3:
+                    str = "水";
+                    break;
+                case 4:
+                    str = "木";
+                    break;
+                case 5:
+                    str = "金";
+                    break;
+                case 6:
+                    str = "土";
+                    break;
+            }
+            document.getElementById("day").textContent = str;
+        };
+    </script>
+</head>
+<body>
+    <h1>今日は<span id="day"></span>曜日</h1>
+</body>
+</html>
