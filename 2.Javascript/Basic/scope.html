@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script>
+      let count = 0;
+
+      function test(e) {
+        let a = "hello";
+        for (let i = 0; i < 3; i++) {
+          console.log("count=" + count + " i=" + i);
+          console.log(a)
+        }
+        count++;
+      }
+      function init() {
+        count = 10;
+      }
+    </script>
+  </head>
+  <body>
+    <p>画面は更新されません。ソースをご覧ください。</p>
+  </body>
+</html>
+
