@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script>
+      function Pen(color, length) {
+        this.color = color;
+        this.length = length;
+        this.draw = function () {
+          this.length -= 1;
+        };
+      }
+      let penR = new Pen("red", 15);
+      let penG = new Pen("green", 20);
+      let penB = new Pen("blue", 8);
+      let pen = penR;
+
+      function stroke() {
+        pen.draw();
+        let pencil = document.getElementById("pencil");
+        pencil.style.width = pen.length + "cm";
+        pencil.style.backgroundColor = pen.color;
+        pencil.textContent = "色=" + pen.color + "長さ=" + pen.length;
+      }
+
+      function pickR() {
+        pen = penR;
+      }
+      function pickG() {
+        pen = penG;
+      }
+      function pickB() {
+        pen = penB;
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="pickR()">赤を選ぶ</button>
+    <button onclick="pickG()">緑を選ぶ</button>
+    <button onclick="pickB()">青を選ぶ</button>
+    <button onclick="stroke()">書く</button>
+    
+    <p id="pencil" style="background-color: red; width: 5cm"></p>
+  </body>
+</html>
+
