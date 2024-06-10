@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script>
+      let car = {
+        color: "black",
+        speed: 100,
+        fuel: 70,
+      };
+      function checkSpeed() {
+        document.getElementById("speed").textContent = car.speed;
+      }
+      function checkFuel() {
+        document.getElementById("fuel").textContent = car.fuel;
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="checkSpeed()">スピードチェック</button>
+    <p>車のスピードは<span id="speed"></span>km</p>
+    <button onclick="checkFuel()">燃料チェック</button>
+    <p>車の燃料は<span id="fuel"></span>%</p>
+  </body>
+</html>
+
