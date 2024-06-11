@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script>
+      function init() {
+        let canvas = document.getElementById("canvas");
+        let ctx = canvas.getContext("2d");
+
+        // フランス国旗
+        ctx.lineWidth = 1;
+        ctx.fillStyle = "#0000FF";
+        ctx.fillRect(100, 100, 100, 200);
+        ctx.fillStyle = "#FFFFFF";
+        ctx.fillRect(200, 100, 100, 200);
+        ctx.fillStyle = "#FF0000";
+        ctx.fillRect(300, 100, 100, 200);
+        ctx.rect(100, 100, 300, 200)
+        ctx.stroke();
+
+      // モルディブ国旗
+      ctx.lineWidth = 10;
+      ctx.fillStyle = "#D21033";
+      ctx.fillRect(500, 100, 300, 200);
+      ctx.fillStyle = "#017E3A";
+      ctx.fillRect(525, 125, 250, 150);
+      ctx.fillStyle = "white";
+      ctx.beginPath();
+      ctx.arc(660, 200, 60, 0, Math.PI * 2);
+      ctx.closePath();
+      ctx.fill();
+      ctx.fillStyle = "#017E3A";
+      ctx.beginPath();
+      ctx.arc(690, 200, 55, 0, Math.PI * 2);
+      ctx.closePath();
+      ctx.fill();
+    }
+    </script>
+  </head>
+  <body onload="init()">
+    <canvas id="canvas" width="900" height="600"></canvas>
+  </body>
+</html>
