@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <style>
+      td.cell {
+        background-color: white;
+        width: 100px;
+        height: 100px;
+        font-size: 60px;
+        text-align: center;
+      }
+    </style>
+    <script>
+      let count = 0;
+      function init() {
+        let b = document.getElementById("board");
+        for (i = 0; i < 3; i++) {
+          let tr = document.createElement("tr");
+          for (let j = 0; j < 3; j++) {
+            let td = document.createElement("td");
+            td.className = "cell";
+            td.id = "cell" + i + j;
+            td.onclick = clicked;
+            tr.appendChild(td);
+          }
+          b.appendChild(tr);
+        }
+      }
+      function clicked(e) {
+        if (count % 2 == 0) {
+          e.target.textContent = "○";
+          count++;
+        } else if (count % 2 == 1) {
+          e.target.textContent = "×";
+          count++;
+        }
+      }
+    </script>
+  </head>
+  <body onload="init()">
+    <table id="board" border="1"></table>
+  </body>
+</html>
+
