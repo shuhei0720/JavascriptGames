@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script>
+      function update() {
+        let now = new Date();
+        document.getElementById("year").textContent = now.getFullYear();
+        document.getElementById("month").textContent = now.getMonth() + 1;
+        document.getElementById("date").textContent = now.getDate();
+        document.getElementById("hour").textContent = now.getHours();
+        document.getElementById("min").textContent = now.getMinutes();
+        document.getElementById("sec").textContent = now.getSeconds();
+        document.getElementById("msec").textContent = now.getMilliseconds();
+      }
+    </script>
+  </head>
+  <body onload="update()">
+    <p>
+      <span id="year"></span>年 <span id="month"></span>月
+      <span id="date"></span>日 <span id="hour"></span>時
+      <span id="min"></span>分 <span id="sec"></span>秒
+      <span id="msec"></span>ミリ
+    </p>
+    <button onclick="update()">更新</button>
+  </body>
+</html>
+
