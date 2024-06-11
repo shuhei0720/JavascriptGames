@@ -6,6 +6,7 @@
       let timerId = NaN;
       let count = 0;
       function startTimer() {
+        clearInterval(timerId);
         timerId = setInterval(tick, 1000);
       }
       function stopTimer() {
