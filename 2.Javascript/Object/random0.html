@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script>
+      function random() {
+        let r = Math.floor(Math.random() * 6);
+        document.getElementById("value").textContent = r;
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="random()">乱数:<span id="value"></span></button>
+  </body>
+</html>
+
