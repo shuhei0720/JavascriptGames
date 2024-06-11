@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script>
+      let ctx; // 描画コンテキスト
+      let points = []; // 線の軌跡を保存する配列
+
+      function init() {
+        let canvas = document.getElementById("canvas");
+        ctx = canvas.getContext("2d"); // 描画コンテキスト取得
+        ctx.strokeStyle = "#FF0000"; // 線の色
+        // イベントハンドラの登録
+        canvas.onmousedown = mymousedown;
+        canvas.onmousemove = mymousemove;
+        canvas.onmouseup = mymouseup;
+      }
+      function mymousedown(e) {
+        // マウス押下時の座標をリストに保存
+        points = [{ x: e.offsetX, y: e.offsetY }];
+      }
+      function mymousemove(e) {
+        if (points.length > 0) {
+          // 既に座標が保存されている場合（＝マウス押下時）のみ追加
+          points.push({ x: e.offsetX, y: e.offsetY });
+        }
+        paint();
+      }
+      function mymouseup(e) {
+        // マウスリリース時に配列をクリア
+        points = [];
+      }
+      function paint() {
+        ctx.clearRect(0, 0, 500, 500);  // 背景クリア
+        if (points.length <= 1) {
+          return;
+        }
+        // 配列内の座標を順番にlineToで描画
+        ctx.beginPath();
+        ctx.moveTo(points[0].x, points[0].y);
+        for (let i = 1; i < points.length; i++) {
+          ctx.lineTo(points[i].x, points[i].y);
+        }
+        ctx.stroke();
+      }
+    </script>
+  </head>
+  <body onload="init()">
+    <canvas
+      id="canvas"
+      width="500"
+      height="500"
+      style="width: 500px; height: 500px; border: 1px solid black"
+    ></canvas>
+  </body>
+</html>
