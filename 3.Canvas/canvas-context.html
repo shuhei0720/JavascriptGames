@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script>
+      function init() {
+        let canvas = document.getElementById("canvas");
+        let ctx = canvas.getContext("2d");
+
+        ctx.strokeStyle = "#FF0000";
+        ctx.fillStyle = "#00FF00";
+        ctx.lineWidth = 10;
+        ctx.lineCap = "round";
+        ctx.shadowColor = "#000000";
+        ctx.shadowBlur = 20;
+        ctx.beginPath();
+        ctx.moveTo(100, 100);
+        ctx.lineTo(180, 250);
+        ctx.stroke();
+
+        ctx.fillRect(300, 100, 100, 150);
+
+        ctx.strokeRect(500, 100, 100, 150);
+      }
+    </script>
+  </head>
+  <body onload="init()">
+    <canvas id="canvas" width="700" height="400"></canvas>
+  </body>
+</html>
