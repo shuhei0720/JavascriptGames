@@ -5,6 +5,7 @@
     <script>
       function random() {
         let r = Math.floor(Math.random() * 6);
+        r = Math.max(2, Math.min(5, r));
         document.getElementById("value").textContent = r;
       }
     </script>
