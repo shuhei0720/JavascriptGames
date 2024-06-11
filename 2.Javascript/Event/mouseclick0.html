@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script>
+      window.onload = function() {
+        document.getElementById("yes").onclick = yeshandler;
+        document.getElementById("no").onclick = nohandler;
+      };
+      function yeshandler(e) {
+        document.getElementById("status").textContent = "はいが選ばれました";
+      }
+      function nohandler(e) {
+        document.getElementById("status").textContent = "いいえが選ばれました";
+      }
+    </script>
+  </head>
+  <body>
+    <button id="yes">はい</button>
+    <button id="no">いいえ</button>
+    <h2 id="status"></h2>
+  </body>
+</html>
+
