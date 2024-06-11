@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <style>
+      .card {
+        width: 50px;
+        height: 70px;
+        border: 1px solid blue;
+        border-radius: 10px;
+        text-align: center;
+        font-size: 26px;
+        background-color: white;
+        box-shadow: rgb(128, 128, 128) 5px 5px;
+      }
+    </style>
+    <script>
+      let strike = Math.floor(Math.random() * 3);
+      window.onload = function() {
+        document.getElementById("deck").onclick = myhandler;
+      };
+
+      function myhandler(e) {
+        let card0 = document.getElementById("card0");
+        let card1 = document.getElementById("card1");
+        let card2 = document.getElementById("card2");
+        let shuffle = document.getElementById("shuffle");
+
+        if (e.target == shuffle) {
+          strike = Math.floor(Math.random() * 3);
+          card0.textContent = "";
+          card1.textContent = "";
+          card2.textContent = "";
+        }
+        if (
+          (e.target == card0 && strike == 0) ||
+          (e.target == card1 && strike == 1) ||
+          (e.target == card2 && strike == 2)
+        ) {
+          e.target.textContent = "〇";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="deck">
+      <table>
+        <tr>
+          <td class="card" id="card0"></td>
+          <td class="card" id="card1"></td>
+          <td class="card" id="card2"></td>
+        </tr>
+      </table>
+      <button id="shuffle">Shuffle</button>
+    </div>
+  </body>
+</html>
+
