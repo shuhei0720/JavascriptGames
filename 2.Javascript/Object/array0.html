@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script>
+      let data = [1, 8, 5, 7, 2, 6, 7, 4, 0];
+
+      function push() {
+        let v = Math.floor(Math.random() * 10);
+        let r = data.push(v);
+        update(r);
+      }
+      function pop() {
+        let r = data.pop();
+        update(r);
+      }
+      function shift() {
+        let r = data.shift();
+        update(r);
+      }
+      function splice() {
+        let r = data.splice(3, 2);
+        update(r);
+      }
+      function update(rval) {
+        document.getElementById("data").textContent = data;
+        document.getElementById("length").textContent = data.length;
+        document.getElementById("rval").textContent = rval;
+        let v0 = data.indexOf(7);
+        let v1 = data.lastIndexOf(7);
+        document.getElementById("i0").textContent = v0;
+        document.getElementById("i1").textContent = v1;
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="push()">push()</button>
+    <button onclick="pop()">pop()</button>
+    <button onclick="shift()">shift()</button>
+    <button onclick="splice()">splice(3,2)</button>
+
+    <ul style="font-size: 20px">
+      <li>配列データ：<span id="data"></span></li>
+      <li>lengthプロパティ:<span id="length"></span></li>
+      <li>戻り値:<span id="rval"></span></li>
+      <li>indexOf(7):<span id="i0"></span></li>
+      <li>lastIndexOf(7):<span id="i1"></span></li>
+    </ul>
+  </body>
+</html>
+
