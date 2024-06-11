@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script>
+      let timerId = NaN;
+      let count = 0;
+      function startTimer() {
+        timerId = setInterval(tick, 1000);
+      }
+      function stopTimer() {
+        clearInterval(timerId);
+      }
+      function tick() {
+        count++;
+        document.getElementById("counter").textContent = count;
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="startTimer()">スタート</button>
+    <button onclick="stopTimer()">ストップ</button>
+    <h2 id="counter"></h2>
+  </body>
+</html>
+
