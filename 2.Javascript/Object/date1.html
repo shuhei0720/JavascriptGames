@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script>
+      let startDate;
+      function start() {
+        startDate = new Date();
+        document.getElementById("result").textContent = "started...";
+      }
+      function stop() {
+        let now = new Date();
+        let elapsed = now.getTime() - startDate.getTime();
+        document.getElementById("result").textContent = elapsed;
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="start()">スタート</button>
+    <button onclick="stop()">ストップ</button>
+    <span id="result"></span>
+  </body>
+</html>
+
