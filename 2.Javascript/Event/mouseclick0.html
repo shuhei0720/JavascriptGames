@@ -4,14 +4,11 @@
     <meta charset="UTF-8">
     <script>
       window.onload = function() {
-        document.getElementById("yes").onclick = yeshandler;
-        document.getElementById("no").onclick = nohandler;
+        document.getElementById("yes").onclick = myhandler;
+        document.getElementById("no").onclick = myhandler;
       };
-      function yeshandler(e) {
-        document.getElementById("status").textContent = "はいが選ばれました";
-      }
-      function nohandler(e) {
-        document.getElementById("status").textContent = "いいえが選ばれました";
+      function myhandler(e) {
+        document.getElementById("status").textContent = e.target.textContent + "が選ばれました";
       }
     </script>
   </head>
