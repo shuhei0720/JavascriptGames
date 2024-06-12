@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script>
+      function init(){
+        let fruit0 = document.getElementById("fruit0");
+        let fruit1 = document.getElementById("fruit1");
+        let fruit2 = document.getElementById("fruit2");
+        let fruit3 = document.getElementById("fruit3");
+
+        let field = document.getElementById("field");
+        let ctx = field.getContext("2d");
+
+        ctx.drawImage(fruit0, 10, 10);
+        ctx.drawImage(fruit1, 200, 10, 100, 200);
+        ctx.drawImage(fruit2, 10, 100, 200, 100);
+        ctx.drawImage(fruit3, 200, 200, 200, 200);
+      }
+    </script>
+  </head>
+  <body onload="init()">
+    <canvas id="field" width="400" height="400"></canvas>
+    <img id="fruit0" src="fruit0.png" style="display: none">
+    <img id="fruit1" src="fruit1.png" style="display: none">
+    <img id="fruit2" src="fruit2.png" style="display: none">
+    <img id="fruit3" src="fruit3.png" style="display: none">
+  </body>
+</html>
