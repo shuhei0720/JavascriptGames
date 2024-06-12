@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script>
+      function init(){
+        let canvas = document.getElementById("canvas");
+        let ctx = canvas.getContext("2d");
+        ctx.font = "36px 'Times New Roman'";
+        
+        ctx.strokeStyle = "blue";
+        ctx.strokeText("strokeTextによる文字", 10, 50);
+
+        ctx.fillStyle = "green";
+        ctx.fillText("fillTextによる文字", 10, 100);
+      }
+    </script>
+  </head>
+  <body onload="init()">
+    <canvas id="canvas" width="350" height="120"></canvas>
+  </body>
+</html>
