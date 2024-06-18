@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Dungeon</title>
+    <style>
+      #space {
+        width: 800px;
+        height: 800px;
+        touch-action: none;
+      }
+      #START {
+        position: absolute;
+        left: 200px;
+        top: 200px;
+      }
+    </style>
+    <script>
+      "use strict";
+      const stars = [];
+      let keymap = [];
+      let ctx;
+      let ship;
+      let score = 0;
+      let speed = 25;
+      let timer = NaN;
+
+      function Ship(x, y) {
+        this.x = x;
+        this.y = y;
+        this.keydown = function (e) {
+          keymap[e.keyCode] = true;
+        };
+        this.keyup = function (e) {
+          keymap[e.keyCode] = false;
+        };
+        this.move = function () {
+          if (keymap[37]) {
+            this.x -= 30;
+          } else if (keymap[39]) {
+            this.x += 30;
+          }
+
+          if (keymap[38]) {
+            this.y -= 30;
+          } else if (keymap[40]) {
+            this.y += 30;
+          }
+          this.x = Math.max(-800, Math.min(800, this.x));
+          this.y = Math.max(-800, Math.min(800, this.y));
+        };
+      }
+
+      function random(v) {
+        return Math.floor(Math.random() * v);
+      }
+
+      function init() {
+        for (let i = 0; i < 200; i++) {
+          stars.push({
+            x: random(800 * 4) - 1600,
+            y: random(800 * 4) - 1600,
+            z: random(4095),
+            r: random(360),
+            w: random(10) - 5,
+          });
+        }
+
+        ship = new Ship(200, 200);
+        onkeydown = ship.keydown;
+        onkeyup = ship.keyup;
+
+        let space = document.getElementById("space");
+        ctx = space.getContext("2d");
+        ctx.font = "40pt Arial";
+        repaint();
+      }
+
+      function go() {
+        let space = document.getElementById("space");
+        space.onmousedown = mymousedown;
+        space.onmouseup = mymouseup;
+        space.oncontextmenu = function (e) {
+          e.preventDefault();
+        };
+        space.addEventListener("touchstart", mymousedown);
+        space.addEventListener("touchend", mymouseup);
+
+        document.body.addEventListener(
+          "touchmove",
+          function (event) {
+            event.preventDefault();
+          },
+          false
+        );
+        document.getElementById("START").style.display = "none";
+        document.getElementById("bgm").play();
+        timer = setInterval(tick, 50);
+      }
+
+      function mymousedown(e) {
+        let mouseX = (!isNaN(e.offsetX) ? e.offsetX : e.touches[0].clientX) - 400;
+        let mouseY = (!isNaN(e.offsetY) ? e.offsetY : e.touches[0].clientY) - 400;
+        if (Math.abs(mouseX) > Math.abs(mouseY)) {
+          keymap[mouseX > 0 ? 37 : 39] = true;
+        } else {
+          keymap[mouseY > 0 ? 38 : 40] = true;
+        }
+      }
+
+      function mymouseup(e) {
+        keymap = [];
+      }
+
+      function tick() {
+        stars.forEach((s) => {
+          s.z -= speed;
+          s.r += s.w;
+          if (s.z < 64) {
+            if (Math.abs(s.x - ship.x) < 50 && Math.abs(s.y - ship.y) < 50) {
+              clearInterval(timer);
+              timer = NaN;
+              document.getElementById("bgm").pause();
+              return;
+            }
+            s.x = random(800 * 4) - 1600;
+            s.y = random(800 * 4) - 1600;
+            s.z = 4095;
+          }
+        });
+
+        if (score++ % 10 == 0) {
+          speed++;
+        }
+        ship.move();
+        repaint();
+      }
+
+      function repaint() {
+        ctx.fillStyle = "black";
+        ctx.fillRect(0, 0, 800, 800);
+        stars.sort((a, b) => b.z - a.z);
+
+        stars.forEach((s) => {
+          let z = s.z;
+          let x = ((s.x - ship.x) * 512) / z + 400;
+          let y = ((s.y - ship.y) * 512) / z + 400;
+          let size = (50 * 512) / z;
+          ctx.save();
+          ctx.translate(x, y);
+          ctx.globalAlpha = 1 - z / 4096;
+          ctx.rotate((s.r * Math.PI) / 180);
+          ctx.drawImage(rockImg, -size / 2, -size / 2, size, size);
+          ctx.restore();
+        });
+
+        ctx.drawImage(scope, 0, 0, 800, 800);
+        ctx.fillStyle = "#5aFFFF";
+        ctx.fillText(("000000" + score).slice(-7), 550, 60);
+        if (isNaN(timer)) {
+          ctx.fillText("GAME OVER", 250, 350);
+        }
+      }
+    </script>
+  </head>
+  <body onload="init()">
+    <!-- Thanks to http://takao-suenobu.com/ & http://dova-s.jp/ -->
+    <audio src="Escape.mp3" id="bgm" loop="loop"></audio>
+    <canvas id="space" width="800" height="800"></canvas>
+    <img id="START" src="start.png" onclick="go()"><br>
+    <img id="rockImg" src="rock.png" style="display: none">
+    <img id="scope" src="scope.png" style="display: none">
+  </body>
+</html>
