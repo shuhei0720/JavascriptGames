@@ -100,6 +100,7 @@
       let bullets = [];
       let enemies = [];
       const stars = [];
+      let score = 0;
 
       onload = function () {
         ctx = document.getElementById("field").getContext("2d");
@@ -142,11 +143,16 @@
             gameOver = true;
           }
         });
+        let prevNum = enemies.length;
         enemies = enemies.filter((e) => {
           return !bullets.some((b) => {
             return b.isShip && dist(e, b) < 50;
           });
         });
+        score += prevNum - enemies.length;
+        ctx.fillStyle = "yellow";
+        ctx.fillText("SCORE:" + score, 100, 100);
+        
         if (gameOver) {
           clearInterval(timerId);
           ctx.fillStyle = "yellow";
