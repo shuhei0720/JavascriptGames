@@ -12,10 +12,10 @@
         }
         .game-image {
             width: 100%;
-            max-width: 300px; /* 固定幅を設定 */
-            max-height: 400px; /* 高さを自動調整 */
-            display: block; /* ブロック要素として表示 */
-            margin: 0 auto; /* 中央揃え */
+            max-width: 300px;
+            max-height: 400px;
+            display: block;
+            margin: 0 auto;
         }
         .game-description {
             background-color: white;
@@ -44,6 +44,22 @@
             color: white;
             border: 1px solid #4CAF50;
         }
+        .completed-label {
+            display: inline-block;
+            padding: 2px 6px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+        .medal-display {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            font-size: 1.5rem;
+        }
     </style>
 </head>
 <body class="bg-gray-100 p-6">
@@ -60,98 +76,179 @@
                 <br>
                 <a href="https://github.com/shuhei0720" class="text-blue-500">https://github.com/shuhei0720</a>
             </div>
+            <div class="medal-display">
+                獲得したメダル：<span id="medal-count">0</span> 🏅
+            </div>
             <div id="game-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <a href="../15puzzle/15puzzle.html" target="_blank" class="block border border-blue-300 rounded-lg p-4 bg-blue-50 hover:bg-blue-100">
-                    <h2 class="text-xl font-bold mb-2">☆スライドパズル☆</h2>
-                    <img src="15puzzle.png" class="game-image">
+                <div class="game-item block border border-blue-300 rounded-lg p-4 bg-blue-50 hover:bg-blue-100" data-game-id="game1">
+                    <a href="../15puzzle/15puzzle.html" target="_blank">
+                        <h2 class="text-xl font-bold mb-2">☆スライドパズル☆</h2>
+                        <img src="15puzzle.png" class="game-image">
+                    </a>
                     <div class="game-description">
                         <p>・1～15まで順番になるように並べるゲームです。<br>・空欄の上下左右にあるタイルをクリックするとそのタイルが移動します。</p>
                     </div>
-                </a>
-                <a href="../15puzzle/25puzzle.html" target="_blank" class="block border border-blue-300 rounded-lg p-4 bg-blue-50 hover:bg-blue-100">
-                    <h2 class="text-xl font-bold mb-2">☆スライドパズル2☆</h2>
-                    <img src="25puzzle.png" class="game-image">
+                    <label class="completed-label" style="display: none;">クリア済み</label>
+                    <label class="float-right">
+                        <input type="checkbox" class="completion-checkbox"> クリア済み
+                    </label>
+                </div>
+                <div class="game-item block border border-blue-300 rounded-lg p-4 bg-blue-50 hover:bg-blue-100" data-game-id="game2">
+                    <a href="../15puzzle/25puzzle.html" target="_blank">
+                        <h2 class="text-xl font-bold mb-2">☆スライドパズル2☆</h2>
+                        <img src="25puzzle.png" class="game-image">
+                    </a>
                     <div class="game-description">
                         <p>・1～25まで順番になるように並べるゲームです。<br>・空欄の上下左右にあるタイルをクリックするとそのタイルが移動します。</p>
                     </div>
-                </a>
-                <a href="../FlipCards/FlipCards.html" target="_blank" class="block border border-blue-300 rounded-lg p-4 bg-blue-50 hover:bg-blue-100">
-                    <h2 class="text-xl font-bold mb-2">☆神経衰弱☆</h2>
-                    <img src="FlipCards.png" class="game-image">
+                    <label class="completed-label" style="display: none;">クリア済み</label>
+                    <label class="float-right">
+                        <input type="checkbox" class="completion-checkbox"> クリア済み
+                    </label>
+                </div>
+                <div class="game-item block border border-blue-300 rounded-lg p-4 bg-blue-50 hover:bg-blue-100" data-game-id="game3">
+                    <a href="../FlipCards/FlipCards.html" target="_blank">
+                        <h2 class="text-xl font-bold mb-2">☆神経衰弱☆</h2>
+                        <img src="FlipCards.png" class="game-image">
+                    </a>
                     <div class="game-description">
                         <p>・20枚のトランプでの神経衰弱です。<br>・カードを2枚めくって一致するペアを見つけます。</p>
                     </div>
-                </a>
-                <a href="../FlipCards/FlipCards52.html" target="_blank" class="block border border-blue-300 rounded-lg p-4 bg-blue-50 hover:bg-blue-100">
-                    <h2 class="text-xl font-bold mb-2">☆神経衰弱2☆</h2>
-                    <img src="FlipCards52.png" class="game-image">
+                    <label class="completed-label" style="display: none;">クリア済み</label>
+                    <label class="float-right">
+                        <input type="checkbox" class="completion-checkbox"> クリア済み
+                    </label>
+                </div>
+                <div class="game-item block border border-blue-300 rounded-lg p-4 bg-blue-50 hover:bg-blue-100" data-game-id="game4">
+                    <a href="../FlipCards/FlipCards52.html" target="_blank">
+                        <h2 class="text-xl font-bold mb-2">☆神経衰弱2☆</h2>
+                        <img src="FlipCards52.png" class="game-image">
+                    </a>
                     <div class="game-description">
                         <p>・52枚のトランプでの神経衰弱です。<br>・カードを2枚めくって一致するペアを見つけます。</p>
                     </div>
-                </a>
-                <a href="../CarryIt/CarryIt.html" target="_blank" class="block border border-blue-300 rounded-lg p-4 bg-blue-50 hover:bg-blue-100">
-                    <h2 class="text-xl font-bold mb-2">☆荷物を運ぼう☆</h2>
-                    <img src="CarryIt.png" class="game-image">
+                    <label class="completed-label" style="display: none;">クリア済み</label>
+                    <label class="float-right">
+                        <input type="checkbox" class="completion-checkbox"> クリア済み
+                    </label>
+                </div>
+                <div class="game-item block border border-blue-300 rounded-lg p-4 bg-blue-50 hover:bg-blue-100" data-game-id="game5">
+                    <a href="../CarryIt/CarryIt.html" target="_blank">
+                        <h2 class="text-xl font-bold mb-2">☆荷物を運ぼう☆</h2>
+                        <img src="CarryIt.png" class="game-image">
+                    </a>
                     <div class="game-description">
                         <p>・すべての荷物を●の位置に運ぶゲームです。<br>・人は荷物を引っ張ることはできず、押すことしかできません。<br>・2つ同時に荷物を押すことはできません。</p>
                     </div>
-                </a>
-                <a href="../CarryIt/CarryIt2.html" target="_blank" class="block border border-blue-300 rounded-lg p-4 bg-blue-50 hover:bg-blue-100">
-                    <h2 class="text-xl font-bold mb-2">☆荷物を運ぼう2☆</h2>
-                    <img src="CarryIt2.png" class="game-image">
+                    <label class="completed-label" style="display: none;">クリア済み</label>
+                    <label class="float-right">
+                        <input type="checkbox" class="completion-checkbox"> クリア済み
+                    </label>
+                </div>
+                <div class="game-item block border border-blue-300 rounded-lg p-4 bg-blue-50 hover:bg-blue-100" data-game-id="game6">
+                    <a href="../CarryIt/CarryIt2.html" target="_blank">
+                        <h2 class="text-xl font-bold mb-2">☆荷物を運ぼう2☆</h2>
+                        <img src="CarryIt2.png" class="game-image">
+                    </a>
                     <div class="game-description">
                         <p>・すべての荷物を●の位置に運ぶゲーム続編です。<br>・人は荷物を引っ張ることはできず、押すことしかできません。<br>・2つ同時に荷物を押すことはできません。</p>
                     </div>
-                </a>
-                <a href="../ReversiblePiece/ReversiblePiece.html" target="_blank" class="block border border-blue-300 rounded-lg p-4 bg-blue-50 hover:bg-blue-100">
-                    <h2 class="text-xl font-bold mb-2">☆リバーシ☆</h2>
-                    <img src="ReversiblePiece.png" class="game-image">
+                    <label class="completed-label" style="display: none;">クリア済み</label>
+                    <label class="float-right">
+                        <input type="checkbox" class="completion-checkbox"> クリア済み
+                    </label>
+                </div>
+                <div class="game-item block border border-blue-300 rounded-lg p-4 bg-blue-50 hover:bg-blue-100" data-game-id="game7">
+                    <a href="../ReversiblePiece/ReversiblePiece.html" target="_blank">
+                        <h2 class="text-xl font-bold mb-2">☆リバーシ☆</h2>
+                        <img src="ReversiblePiece.png" class="game-image">
+                    </a>
                     <div class="game-description">
                         <p>・コンピュータと対戦するリバーシです。<br>・あなたは黒側です。黒の石が多ければ勝ちです。<br></p>
                     </div>
-                </a>
-                <a href="../EggCatch/EggCatch.html" target="_blank" class="block border border-blue-300 rounded-lg p-4 bg-blue-50 hover:bg-blue-100">
-                    <h2 class="text-xl font-bold mb-2">☆タマゴを大事に☆</h2>
-                    <img src="EggCatch.png" class="game-image">
+                    <label class="completed-label" style="display: none;">クリア済み</label>
+                    <label class="float-right">
+                        <input type="checkbox" class="completion-checkbox"> クリア済み
+                    </label>
+                </div>
+                <div class="game-item block border border-blue-300 rounded-lg p-4 bg-blue-50 hover:bg-blue-100" data-game-id="game8">
+                    <a href="../EggCatch/EggCatch.html" target="_blank">
+                        <h2 class="text-xl font-bold mb-2">☆タマゴを大事に☆</h2>
+                        <img src="EggCatch.png" class="game-image">
+                    </a>
                     <div class="game-description">
                         <p>・タマゴを落とさないように拾うゲームです。<br>・マウスでカゴを左右に移動します。<br>・時間が経つにつれて多くのタマゴが落ちてきます。</p>
                     </div>
-                </a>
-                <a href="../Dungeon/Dungeon.html" target="_blank" class="block border border-blue-300 rounded-lg p-4 bg-blue-50 hover:bg-blue-100">
-                    <h2 class="text-xl font-bold mb-2">☆ダンジョン☆</h2>
-                    <img src="Dungeon.png" class="game-image">
+                    <label class="completed-label" style="display: none;">クリア済み</label>
+                    <label class="float-right">
+                        <input type="checkbox" class="completion-checkbox"> クリア済み
+                    </label>
+                </div>
+                <div class="game-item block border border-blue-300 rounded-lg p-4 bg-blue-50 hover:bg-blue-100" data-game-id="game9">
+                    <a href="../Dungeon/Dungeon.html" target="_blank">
+                        <h2 class="text-xl font-bold mb-2">☆ダンジョン☆</h2>
+                        <img src="Dungeon.png" class="game-image">
+                    </a>
                     <div class="game-description">
                         <p>・エイリアンに当たらないように迷路の右下を目指します。<br>・右下に辿りつくとクリアです。<br>・エイリアンに当たるとゲームオーバーです。エイリアンは右上、左下からスタートします。</p>
                     </div>
-                </a>
-                <a href="../Dungeon/Dungeon2.html" target="_blank" class="block border border-blue-300 rounded-lg p-4 bg-blue-50 hover:bg-blue-100">
-                    <h2 class="text-xl font-bold mb-2">☆ダンジョン2☆</h2>
-                    <img src="Dungeon2.png" class="game-image">
+                    <label class="completed-label" style="display: none;">クリア済み</label>
+                    <label class="float-right">
+                        <input type="checkbox" class="completion-checkbox"> クリア済み
+                    </label>
+                </div>
+                <div class="game-item block border border-blue-300 rounded-lg p-4 bg-blue-50 hover:bg-blue-100" data-game-id="game10">
+                    <a href="../Dungeon/Dungeon2.html" target="_blank">
+                        <h2 class="text-xl font-bold mb-2">☆ダンジョン2☆</h2>
+                        <img src="Dungeon2.png" class="game-image">
+                    </a>
                     <div class="game-description">
                         <p>・ダンジョンゲームの続編です。<br>・右下に辿りつくとクリアです。<br>・エイリアンに当たるとゲームオーバーです。エイリアンは右上、左下からスタートします。</p>
                     </div>
-                </a>
-                <a href="../SaturnVoyager/SaturnVoyager.html" target="_blank" class="block border border-blue-300 rounded-lg p-4 bg-blue-50 hover:bg-blue-100">
-                    <h2 class="text-xl font-bold mb-2">☆宇宙船☆</h2>
-                    <img src="SaturnVoyager.png" class="game-image">
+                    <label class="completed-label" style="display: none;">クリア済み</label>
+                    <label class="float-right">
+                        <input type="checkbox" class="completion-checkbox"> クリア済み
+                    </label>
+                </div>
+                <div class="game-item block border border-blue-300 rounded-lg p-4 bg-blue-50 hover:bg-blue-100" data-game-id="game11">
+                    <a href="../SaturnVoyager/SaturnVoyager.html" target="_blank">
+                        <h2 class="text-xl font-bold mb-2">☆宇宙船☆</h2>
+                        <img src="SaturnVoyager.png" class="game-image">
+                    </a>
                     <div class="game-description">
                         <p>・宇宙船に乗って惑星を避けるゲームです。<br>・惑星にぶつかるとゲームオーバーです。<br>・徐々にスピードが速くなります。</p>
                     </div>
-                </a>
-                <a href="../FunkyBlocks/FunkyBlocks.html" target="_blank" class="block border border-blue-300 rounded-lg p-4 bg-blue-50 hover:bg-blue-100">
-                    <h2 class="text-xl font-bold mb-2">☆ブロック落とし☆</h2>
-                    <img src="FunkyBlocks.png" class="game-image">
+                    <label class="completed-label" style="display: none;">クリア済み</label>
+                    <label class="float-right">
+                        <input type="checkbox" class="completion-checkbox"> クリア済み
+                    </label>
+                </div>
+                <div class="game-item block border border-blue-300 rounded-lg p-4 bg-blue-50 hover:bg-blue-100" data-game-id="game12">
+                    <a href="../FunkyBlocks/FunkyBlocks.html" target="_blank">
+                        <h2 class="text-xl font-bold mb-2">☆ブロック落とし☆</h2>
+                        <img src="FunkyBlocks.png" class="game-image">
+                    </a>
                     <div class="game-description">
                         <p>・縦横に同じ色を3つ以上揃えて消すゲームです。<br>・連鎖するほど高得点になります。<br>・右下のブロックが無くなるとタイムアップです。</p>
                     </div>
-                </a>
-                <a href="../Chase/Chase.html" target="_blank" class="block border border-blue-300 rounded-lg p-4 bg-blue-50 hover:bg-blue-100">
-                    <h2 class="text-xl font-bold mb-2">☆食べつくせ☆</h2>
-                    <img src="Chase.png" class="game-image">
+                    <label class="completed-label" style="display: none;">クリア済み</label>
+                    <label class="float-right">
+                        <input type="checkbox" class="completion-checkbox"> クリア済み
+                    </label>
+                </div>
+                <div class="game-item block border border-blue-300 rounded-lg p-4 bg-blue-50 hover:bg-blue-100" data-game-id="game13">
+                    <a href="../Chase/Chase.html" target="_blank">
+                        <h2 class="text-xl font-bold mb-2">☆食べつくせ☆</h2>
+                        <img src="Chase.png" class="game-image">
+                    </a>
                     <div class="game-description">
                         <p>・マウスを操作して小さなゲームキャラクターを食べるゲームです。<br>・時間内にすべてのキャラクターを食べるとクリアです。<br>・マウスとゲームキャラクターの距離に応じてスピードが変化します。</p>
                     </div>
-                </a>
+                    <label class="completed-label" style="display: none;">クリア済み</label>
+                    <label class="float-right">
+                        <input type="checkbox" class="completion-checkbox"> クリア済み
+                    </label>
+                </div>
             </div>
             <div class="pagination" id="pagination"></div>
         </div>
@@ -161,9 +258,13 @@
         const gamesPerPage = 6;
         const gameContainer = document.getElementById('game-container');
         const pagination = document.getElementById('pagination');
+        const medalCountElement = document.getElementById('medal-count');
 
         const totalGames = gameContainer.children.length;
         const totalPages = Math.ceil(totalGames / gamesPerPage);
+
+        // Initialize game completion states
+        const gameCompletionStates = JSON.parse(localStorage.getItem('gameCompletionStates')) || {};
 
         function showPage(page) {
             const startIndex = (page - 1) * gamesPerPage;
@@ -204,8 +305,52 @@
             buttons[activeIndex - 1].classList.add('active');
         }
 
-        // Initialize pagination
-        createPaginationButtons();
+        function updateMedalCount() {
+            const completedGames = document.querySelectorAll('.completion-checkbox:checked').length;
+            medalCountElement.textContent = completedGames;
+        }
+
+        function updateGameCompletionStates() {
+            const checkboxes = document.querySelectorAll('.completion-checkbox');
+            checkboxes.forEach(checkbox => {
+                const gameId = checkbox.closest('.game-item').dataset.gameId;
+                gameCompletionStates[gameId] = checkbox.checked;
+            });
+            localStorage.setItem('gameCompletionStates', JSON.stringify(gameCompletionStates));
+        }
+
+        function loadGameCompletionStates() {
+            const checkboxes = document.querySelectorAll('.completion-checkbox');
+            checkboxes.forEach(checkbox => {
+                const gameId = checkbox.closest('.game-item').dataset.gameId;
+                if (gameCompletionStates[gameId]) {
+                    checkbox.checked = true;
+                    checkbox.closest('.game-item').querySelector('.completed-label').style.display = 'inline-block';
+                } else {
+                    checkbox.checked = false;
+                    checkbox.closest('.game-item').querySelector('.completed-label').style.display = 'none';
+                }
+            });
+            updateMedalCount();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            createPaginationButtons();
+            loadGameCompletionStates();
+
+            const checkboxes = document.querySelectorAll('.completion-checkbox');
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', () => {
+                    updateGameCompletionStates();
+                    if (checkbox.checked) {
+                        checkbox.closest('.game-item').querySelector('.completed-label').style.display = 'inline-block';
+                    } else {
+                        checkbox.closest('.game-item').querySelector('.completed-label').style.display = 'none';
+                    }
+                    updateMedalCount();
+                });
+            });
+        });
     </script>
 </body>
 </html>
